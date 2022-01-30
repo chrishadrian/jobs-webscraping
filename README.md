@@ -9,3 +9,6 @@ Looking at the vast amount of job postings out there, I feel so unproductive to 
 - As a user, I want to be able to filter the retrieved information based on one or more categories.
 - As a user, I want to be given the option to save the information to a CSV file.
 - As a user, I want to be given the option to load the information to the database.
+
+#
+Personal project: Created by Christopher Wong

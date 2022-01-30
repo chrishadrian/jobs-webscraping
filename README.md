@@ -1,2 +1,2 @@
-# jobs-webscrapping
- 
+# Jobscrapper
+Looking at the vast amount of job postings out there, I feel so unproductive to look into the description, qualification, and salary of each job manually. Jobscrapper is a one-time solution to solve this problem. This app will allow you to save a lot of time by doing all those things with webscrapping method and store only the essential information into a database. This way, user can easily view, sort, and compare those information in a more effective way.

@@ -10,6 +10,7 @@ Looking at the vast amount of job postings out there, I feel so unproductive to 
 - As a user, I want to be given the option to save the information to a CSV file.
 - As a user, I want to be given the option to load the information to the database.
 
+#
 ### Commit #1
 Learned the basics of SQL -> Created table, inserted data to table, fetch all/certain data from table, delete table
 Feb 10, 2022

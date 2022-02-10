@@ -7,7 +7,7 @@ c = conn.cursor() # access to the database
 # make columns and data type
 #c.execute('''CREATE TABLE meals(sandwich TEXT, fruit TEXT, tablenumber INT)''')
 
-c.execute('''DROP TABLE meals''') ## delete table from database
+# c.execute('''DROP TABLE meals''') ## delete table from database
 
 sandwich = 'jam'
 fruit = 'sandwich'

@@ -10,7 +10,7 @@ src = result.content
 # parse and process the page content with a BeautifulSoup object
 soup = BeautifulSoup(src, 'html.parser')
 
-# narrow page content to jobcards listing
+# narrow down page content to jobcards
 jobcards = soup.find_all('div', {"class":"job_seen_beacon"})
 
 i = 0

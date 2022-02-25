@@ -2,26 +2,19 @@ import requests
 from bs4 import BeautifulSoup
 
 # access the webpage
-result = requests.get("https://www.glassdoor.ca/member/home/companies.html")
-
-# test the correctness of the website
-# print(result.status_code)
-# print(result.headers)
+result = requests.get("https://ca.indeed.com/jobs?q=software%20engineer%20intern&l=Vancouver%2C%20BC&jt=internship&taxo2=FregbhAzTjWUem4LngOP1g&vjk=85dd6631ff774608")
 
 # store the page content to a variable
 src = result.content
 
 # parse and process the page content with a BeautifulSoup object
-soup = BeautifulSoup(src, 'lxml')
+soup = BeautifulSoup(src, 'html.parser')
 
-# printing all the "a" properties
-links = soup.find_all("a")
-# print(links)
-# print("\n")
+# narrow page content to jobcards listing
+jobcards = soup.find_all('div', {"class":"job_seen_beacon"})
 
-# print with condition
-for link in links:
-    if "Salary" in link.text:
-        print(link)
-        print("\n")
-        print(link.attrs['href'])
+i = 0
+for jobcard in jobcards:
+    i += 1
+print(i)
+

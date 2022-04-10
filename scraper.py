@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 # access the webpage
-result = requests.get("https://ca.indeed.com/jobs?q=software%20engineer%20intern&l=Vancouver%2C%20BC&jt=internship&taxo2=FregbhAzTjWUem4LngOP1g&vjk=85dd6631ff774608")
+result = requests.get("https://ca.indeed.com/jobs?q=software+engineer+intern&l=Vancouver%2C+BC")
 
 # store the page content to a variable
 src = result.content

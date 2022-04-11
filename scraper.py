@@ -1,5 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
+import pandas as pd
 
 def extract(page):
     headers = {'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36'}
@@ -17,7 +18,7 @@ def transform(soup):
         company = item.find('span', class_ = 'companyName').text.strip()
         location = item.find('div', class_ = 'companyLocation').text.strip()
         date = item.find('span', class_ = 'date').text.strip()
-        summary = item.find('div', class_ = 'job-snippet').text.strip()
+        summary = item.find('div', class_ = 'job-snippet').text.strip().replace('\n', '')
 
         job = {
             'title': title,
@@ -31,8 +32,16 @@ def transform(soup):
 
 joblist = []
 
-c = extract(0)
-transform(c)
+# extract all pages
+for i in range(0, 40, 10):
+    print(f'Getting page, {i}')
+    c = extract(i)
+    transform(c)
+
+df = pd.DataFrame(joblist)
+print(df.head())
+df.to_csv('jobs.csv')
+
 
 
 # # store the page content to a variable

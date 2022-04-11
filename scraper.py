@@ -1,20 +1,51 @@
 import requests
 from bs4 import BeautifulSoup
 
-# access the webpage
-result = requests.get("https://ca.indeed.com/jobs?q=software+engineer+intern&l=Vancouver%2C+BC")
+def extract(page):
+    headers = {'User-Agent' : 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.109 Safari/537.36'}
+    url = f"https://ca.indeed.com/jobs?q=software+engineer+intern&l=Vancouver%2C+BC&start={page}"
+    r = requests.get(url, headers)
+    soup = BeautifulSoup(r.content, 'html.parser')
+    return soup
 
-# store the page content to a variable
-src = result.content
+def transform(soup):
+    divs = soup.find_all('div', class_ = 'job_seen_beacon')
+    for item in divs:
+        unwanted = item.find('span', class_ = 'visually-hidden')
+        unwanted.extract()
+        title = item.find('h2').text.strip()
+        company = item.find('span', class_ = 'companyName').text.strip()
+        location = item.find('div', class_ = 'companyLocation').text.strip()
+        date = item.find('span', class_ = 'date').text.strip()
+        summary = item.find('div', class_ = 'job-snippet').text.strip()
 
-# parse and process the page content with a BeautifulSoup object
-soup = BeautifulSoup(src, 'html.parser')
+        job = {
+            'title': title,
+            'company': company,
+            'location': location,
+            'date': date,
+            'summary': summary
+        }
+        joblist.append(job)
+    return
 
-# narrow down page content to jobcards
-jobcards = soup.find_all('div', {"class":"job_seen_beacon"})
+joblist = []
 
-i = 0
-for jobcard in jobcards:
-    i += 1
-print(i)
+c = extract(0)
+transform(c)
+
+
+# # store the page content to a variable
+# src = result.content
+
+# # parse and process the page content with a BeautifulSoup object
+# soup = BeautifulSoup(src, 'html.parser')
+
+# # narrow down page content to jobcards
+# jobcards = soup.find_all('div', {"class":"job_seen_beacon"})
+
+# i = 0
+# for jobcard in jobcards:
+#     i += 1
+# print(i)
 

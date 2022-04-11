@@ -21,11 +21,11 @@ def transform(soup):
         summary = item.find('div', class_ = 'job-snippet').text.strip().replace('\n', '')
 
         job = {
-            'title': title,
-            'company': company,
-            'location': location,
-            'date': date,
-            'summary': summary
+            'Title': title,
+            'Company': company,
+            'Location': location,
+            'Date': date,
+            'Summary': summary
         }
         joblist.append(job)
     return
@@ -41,20 +41,3 @@ for i in range(0, 40, 10):
 df = pd.DataFrame(joblist)
 print(df.head())
 df.to_csv('jobs.csv')
-
-
-
-# # store the page content to a variable
-# src = result.content
-
-# # parse and process the page content with a BeautifulSoup object
-# soup = BeautifulSoup(src, 'html.parser')
-
-# # narrow down page content to jobcards
-# jobcards = soup.find_all('div', {"class":"job_seen_beacon"})
-
-# i = 0
-# for jobcard in jobcards:
-#     i += 1
-# print(i)
-

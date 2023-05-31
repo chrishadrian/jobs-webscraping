@@ -11,14 +11,16 @@ Looking at the vast amount of job postings out there, I feel so unproductive to 
 ## Preview
 ### Running the script
 ![image](https://user-images.githubusercontent.com/65900990/166835986-9c713ce5-3296-40a5-bd6b-1e6c666e0e1c.png)
-### Display the data in a SQL database
+### Display the data in a SQL Format using SQLite
 ![image](https://user-images.githubusercontent.com/65900990/166836265-a3c8224f-0e12-4a1f-b439-86a124303333.png)
 ### Convert CSV to SQL with 3rd party (bit.io)
 ![image](https://user-images.githubusercontent.com/65900990/166836091-7274fffa-ebaf-4703-94fc-444901006b48.png)
 
 ### Skills Learned:
 * SQL
+* SQLite
 * Python
+* BeautifulSoup4
 * Webscraping
 
 #
